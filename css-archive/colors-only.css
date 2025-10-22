@@ -1,0 +1,48 @@
+/* Import Catppuccin colors */
+@import "catppuccin-colors.css";
+
+/* ONLY text colors - no layout changes */
+
+#clock {
+    color: @primary;
+}
+
+#battery {
+    color: @secondary;
+}
+
+#battery.charging {
+    color: @tertiary;
+}
+
+#cpu {
+    color: @tertiary;
+}
+
+#memory {
+    color: @primary_fixed;
+}
+
+#network {
+    color: @primary;
+}
+
+#pulseaudio {
+    color: @secondary;
+}
+
+#workspaces button.active {
+    color: @primary;
+}
+
+#temperature {
+    color: @tertiary_fixed;
+}
+
+#disk {
+    color: @secondary_fixed;
+}
+
+#tray {
+    color: @on_surface;
+}
