@@ -1,14 +1,20 @@
 @import "../omarchy/current/theme/waybar.css";
 
 * {
-  background-color: @background;
+  background-color: transparent;
   color: @foreground;
 
   border: none;
-  border-radius: 0;
+  border-radius: 8px;
   min-height: 0;
-  font-family: 'CaskaydiaMono Nerd Font';
-  font-size: 12px;
+  font-family: 'CaskaydiaMono Nerd Font', 'Font Awesome 7 Free Solid';
+  font-size: 16px;
+  padding: 0px 4px;
+}
+
+window#waybar {
+  background-color: transparent;
+  border: none;
 }
 
 .modules-left {
@@ -21,51 +27,173 @@
 
 #workspaces button {
   all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
+  padding: 0px 1px 0px 8px;
+  margin: 1px 1px;
+  min-width: 0px;
+  background-color: rgba(30, 27, 33, 0.5);
+  border-radius: 9px;
+  transition: all 0.3s ease;
+  font-size: 11px;
+  color: #a89bb9;
+}
+
+#workspaces {
+  background-color: rgba(30, 27, 33, 0.6);
+  border: 4px solid rgba(213, 174, 214, 0.2);
+  border-radius: 8px;
+  padding: 2px 2px;
+  margin: 3px 8px;
+}
+
+#workspaces button.active {
+  background-color: rgba(213, 174, 214, 0.25);
+  color: #f3e2a9;
+  font-weight: bold;
+}
+
+#workspaces button:hover {
+  background-color: rgba(213, 174, 214, 0.15);
+  color: #d5aed6;
 }
 
 #workspaces button.empty {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
+/* Arch logo - its own island */
+#custom-arch {
+  background-color: rgba(30, 27, 33, 0.6);
+  border: 4px solid rgba(213, 174, 214, 0.2);
+  border-radius: 6px;
+  padding: 0px 8px 0px 5px;
+  margin: 3px 8px;
+  margin-left: 6px;
+}
+
+/* Clock and Weather grouped together */
+#clock,
+#custom-weather {
+  background-color: rgba(30, 27, 33, 0.6);
+  border: 4px solid rgba(213, 174, 214, 0.2);
+  border-radius: 6px;
+  padding: 0px 8px;
+  margin: 3px 2px;
+}
+
+/* Window title - its own island */
+#window {
+  background-color: rgba(30, 27, 33, 0.6);
+  border: 4px solid rgba(213, 174, 214, 0.2);
+  border-radius: 6px;
+  padding: 0px 8px;
+  margin: 3px 8px;
+}
+
+/* Power and Lock group container - same as workspaces container */
+#group-status {
+  background-color: rgba(30, 27, 33, 0.6);
+  border: 4px solid rgba(213, 174, 214, 0.2);
+  border-radius: 8px;
+  padding: 2px 2px;
+  margin: 3px 8px;
+}
+
+/* Status group buttons - unified lilac theme */
+#custom-desktop-toggle {
+  background-color: rgba(30, 27, 33, 0.6);
+  border: 4px solid rgba(213, 174, 214, 0.2);
+  border-radius: 9px;
+  padding: 0px 12px 0px 8px;
+  margin: 1px 1px;
+  transition: all 0.3s ease;
+  color: #D5AED6;
+}
+
+#custom-desktop-toggle.on {
+  background-color: rgba(213, 174, 214, 0.25);
+  border: 4px solid rgba(213, 174, 214, 0.4);
+  color: #f3e2a9;
+}
+
+#custom-lock {
+  background-color: rgba(30, 27, 33, 0.6);
+  border: 4px solid rgba(213, 174, 214, 0.2);
+  border-radius: 9px;
+  padding: 0px 8px;
+  margin: 1px 1px;
+  transition: all 0.3s ease;
+  color: #D5AED6;
+}
+
+#custom-power {
+  background-color: rgba(30, 27, 33, 0.6);
+  border: 4px solid rgba(213, 174, 214, 0.2);
+  border-radius: 9px;
+  padding: 0px 12px 0px 8px;
+  margin: 1px 1px;
+  transition: all 0.3s ease;
+  color: #D5AED6;
+}
+
+#custom-desktop-toggle:hover {
+  background-color: rgba(213, 174, 214, 0.15);
+  color: #d5aed6;
+}
+
+#custom-desktop-toggle.on:hover {
+  background-color: rgba(213, 174, 214, 0.35);
+  color: #f3e2a9;
+}
+
+#custom-lock:hover {
+  background-color: rgba(213, 174, 214, 0.15);
+  color: #d5aed6;
+}
+
+#custom-power:hover {
+  background-color: rgba(213, 174, 214, 0.15);
+  color: #d5aed6;
+}
+
+/* All other modules as separate islands */
 #cpu,
-#battery,
 #pulseaudio,
 #custom-omarchy,
 #custom-screenrecording-indicator,
-#custom-update {
-  min-width: 12px;
-  margin: 0 7.5px;
-}
-
-#tray {
-  margin-right: 16px;
-}
-
-#bluetooth {
-  margin-right: 17px;
-}
-
-#network {
-  margin-right: 13px;
-}
-
-#custom-expand-icon {
-  margin-right: 20px;
+#custom-update,
+#tray,
+#bluetooth,
+#network,
+#custom-expand-icon,
+#mpris,
+#custom-rec-dot,
+#custom-volume-bar,
+#custom-tomato-timer,
+#custom-archriot-update,
+#group-system-metrics,
+#custom-cpu-temp,
+#custom-gpu-temp,
+#custom-memory-simple {
+  background-color: rgba(30, 27, 33, 0.6);
+  border: 4px solid rgba(213, 174, 214, 0.2);
+  border-radius: 6px;
+  padding: 0px 8px;
+  margin: 3px 6px;
 }
 
 tooltip {
+  background-color: rgba(30, 27, 33, 0.6);
+  border: 4px solid rgba(213, 174, 214, 0.2);
+  border-radius: 6px;
   padding: 2px;
+}
+
+#custom-omarchy {
+  margin-right: 24px;
 }
 
 #custom-update {
   font-size: 10px;
-}
-
-#clock {
-  margin-left: 8.75px;
 }
 
 .hidden {
@@ -80,4 +208,21 @@ tooltip {
 
 #custom-screenrecording-indicator.active {
   color: #a55555;
+}
+
+/* CPU, GPU, and Memory modules use default font size */
+/* Icons are sized with Pango markup in ModulesCustom */
+
+/* Tighter spacing for CPU, GPU, and Memory modules */
+#custom-cpu-temp,
+#custom-gpu-temp,
+#custom-memory-simple {
+  margin: 3px 2px;
+}
+
+/* Tighter spacing for Network, Bluetooth and Volume modules */
+#network,
+#bluetooth,
+#custom-volume-bar {
+  margin: 3px 2px;
 }

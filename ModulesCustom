@@ -1,0 +1,196 @@
+/* ArchRiot Waybar Custom Modules */
+/* Custom modules for enhanced waybar functionality */
+/* Separated from main modules for better organization */
+/* NOTE: This is only for Custom Modules */
+/* Custom Modules like weather browser, tty, file manager at the beginning */
+
+{
+    "custom/arch-update": {
+    	"exec": "$HOME/.config/waybar/scripts/arch-update.sh",
+    	"return-type": "json",
+    	"interval": 300,
+    	"on-click": "$HOME/.config/waybar/scripts/arch-update.sh --click",
+    	"tooltip": true,
+    },
+
+    "custom/lock": {
+    	"format": "󰌾",
+    	"on-click": "hyprlock",
+    	"tooltip": true,
+    	"tooltip-format": "󰷛 Screen Lock",
+    },
+
+    "custom/desktop-toggle": {
+    	"format": "{}",
+    	"return-type": "json",
+    	"interval": 2,
+    	"exec": "pgrep -x pcmanfm-qt > /dev/null && echo '{\"text\": \"󰇄\", \"class\": \"on\", \"tooltip\": \"Desktop Icons: ON - Click to disable\"}' || echo '{\"text\": \"󰇄\", \"class\": \"off\", \"tooltip\": \"Desktop Icons: OFF - Click to enable\"}'",
+    	"on-click": "$HOME/.config/waybar/scripts/desktop-toggle.sh",
+    	"tooltip": true
+    },
+
+    "custom/rec-dot": {
+    	"format": "{}",
+    	"return-type": "json",
+    	"interval": 2,
+    	"exec": "$HOME/.config/waybar/scripts/recording-indicator.sh",
+    	"on-click": "$HOME/.config/waybar/scripts/recording-indicator.sh --click",
+    	"tooltip": true
+    },
+
+    "custom/power": {
+    	"format": " ⏻ ",
+    	"on-click": "$HOME/.local/bin/rofi-power-manager.sh",
+    	"tooltip": false
+    },
+
+    // Simple CPU temperature
+	"custom/cpu-temp": {
+		"format": "<span size='large'></span> {}",
+		"return-type": "json",
+		"interval": 5,
+		"exec": "$HOME/.config/waybar/scripts/cpu-temp.sh",
+		"on-click": "ghostty -e btop",
+		"tooltip": true
+	},
+
+    // Simple GPU temperature
+	"custom/gpu-temp": {
+		"format": "<span size='large'>󰢮</span> {}",
+		"return-type": "json",
+		"interval": 5,
+		"exec": "$HOME/.config/waybar/scripts/gpu-temp.sh",
+		"on-click": "ghostty -e btop",
+		"tooltip": true
+	},
+
+    // Simple memory usage
+	"custom/memory-simple": {
+		"format": "<span size='large'></span> {}",
+		"return-type": "json",
+		"interval": 5,
+		"exec": "$HOME/.config/waybar/scripts/memory-simple.sh",
+		"on-click": "ghostty -e btop",
+		"tooltip": true
+	},
+
+    // Custom volume module with visual bar indicators
+    "custom/volume-bar": {
+    	"format": "{}",
+    	"return-type": "json",
+    	"interval": 1,
+    	"exec": "$HOME/.config/waybar/scripts/custom-volume-bar.sh",
+    	"on-click": "swayosd-client --output-volume mute-toggle",
+    	"on-click-right": "ghostty --class=Wiremix -e wiremix",
+    	"on-scroll-up": "swayosd-client --output-volume +1",
+    	"on-scroll-down": "swayosd-client --output-volume -1",
+    	"tooltip": true
+    },
+
+    // Separators
+    "custom/separator#dot": {
+    	"format": "",
+    	"interval": "once",
+    	"tooltip": false
+    },
+    "custom/separator#dot-line": {
+    	"format": "",
+    	"interval": "once",
+    	"tooltip": false
+    },
+    "custom/separator#line": {
+    	"format": "|",
+    	"interval": "once",
+    	"tooltip": false
+    },
+    "custom/separator#line-tray": {
+    	"format": "|",
+    	"interval": "once",
+    	"tooltip": false
+    },
+    "custom/separator#blank": {
+    	"format": "",
+    	"interval": "once",
+    	"tooltip": false
+    },
+    "custom/separator#blank_2": {
+    	"format": "  ",
+    	"interval": "once",
+    	"tooltip": false
+    },
+    "custom/separator#blank_3": {
+    	"format": "   ",
+    	"interval": "once",
+    	"tooltip": false
+    },
+    "custom/separator#tight": {
+    	"format": " ",
+    	"interval": "once",
+    	"tooltip": false
+    },
+    "custom/arrow1": {
+    	"format": "",
+    	"tooltip": false
+    },
+
+    "custom/arrow2": {
+    	"format": "",
+    	"tooltip": false
+    },
+
+    "custom/arrow3": {
+    	"format": "",
+    	"tooltip": false
+    },
+
+    "custom/arrow4": {
+    	"format": "",
+    	"tooltip": false
+    },
+
+    "custom/arrow5": {
+    	"format": "",
+    	"tooltip": false
+    },
+
+    "custom/arrow6": {
+    	"format": "",
+    	"tooltip": false
+    },
+
+    "custom/arrow7": {
+    	"format": "",
+    	"tooltip": false
+    },
+
+    "custom/arrow8": {
+    	"format": "",
+    	"tooltip": false
+    },
+
+    "custom/arrow9": {
+    	"format": "",
+    	"tooltip": false
+    },
+
+    "custom/arrow10": {
+    	"format": "",
+    	"tooltip": false
+    },
+    "custom/mullvad": {
+    	"format": "{}",
+    	"return-type": "json",
+    	"interval": 5,
+    	"exec": "$HOME/.config/waybar/scripts/mullvad-status.sh",
+    	"on-click": "$HOME/.config/waybar/scripts/mullvad-click.sh left",
+    	"on-click-right": "$HOME/.config/waybar/scripts/mullvad-click.sh right",
+    	"tooltip": true
+    },
+    "custom/weather": {
+    	"format": "{}",
+    	"return-type": "json",
+    	"interval": 600,
+    	"exec": "$HOME/.config/waybar/scripts/get_weather.sh",
+    	"tooltip": true
+    }
+}
