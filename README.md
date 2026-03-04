@@ -9,3 +9,5 @@ This repository contains my Waybar configuration archived from ~/.config/waybar 
 ![Waybar with Rosepine Heart theme](screenshot-2026-03-03_22-13-48.png)
 
 ![Waybar with Rosepine Heart theme](screenshot-2026-03-03_22-13-59.png)
+
+![Waybar with Rosepine Heart theme](screenshot-2026-03-03_22-47-25.png)
