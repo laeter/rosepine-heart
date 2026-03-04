@@ -1,0 +1,173 @@
+/* Import Catppuccin colors */
+@import "catppuccin-colors.css";
+
+/* Waybar Base Styling */
+* {
+    font-family: 'JetBrains Mono', 'Noto Sans', 'Font Awesome 5 Free', monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @background;
+    color: @on_background;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+/* Module text colors */
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @on_surface_variant;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.active {
+    color: @primary;
+    border-bottom: 3px solid @primary;
+}
+
+#workspaces button:hover {
+    background: @surface_container;
+    color: @primary;
+}
+
+#mode {
+    background-color: @error;
+    color: @on_error;
+    font-weight: bold;
+}
+
+#clock {
+    color: @primary;
+    font-weight: bold;
+}
+
+#battery {
+    color: @secondary;
+}
+
+#battery.charging {
+    color: @tertiary;
+}
+
+#battery.warning:not(.charging) {
+    background-color: @error;
+    color: @on_error;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @error;
+    color: @on_error;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+    color: @tertiary;
+}
+
+#memory {
+    color: @primary_fixed;
+}
+
+#disk {
+    color: @secondary_fixed;
+}
+
+#temperature {
+    color: @tertiary_fixed;
+}
+
+#temperature.critical {
+    color: @error;
+    font-weight: bold;
+}
+
+#network {
+    color: @primary;
+}
+
+#network.disconnected {
+    color: @error;
+}
+
+#pulseaudio {
+    color: @secondary;
+}
+
+#pulseaudio.muted {
+    color: @on_surface_variant;
+}
+
+#tray {
+    color: @on_surface;
+}
+
+#idle_inhibitor {
+    color: @on_surface_variant;
+}
+
+#idle_inhibitor.activated {
+    color: @primary;
+    font-weight: bold;
+}
+
+#mpd {
+    color: @tertiary;
+}
+
+#mpd.disconnected {
+    color: @on_surface_variant;
+}
+
+#mpd.stopped {
+    color: @on_surface_variant;
+}
+
+#mpd.paused {
+    color: @secondary;
+}
+
+#language {
+    color: @primary_fixed_dim;
+}
+
+#keyboard-state {
+    color: @on_surface;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    color: @error;
+    font-weight: bold;
+}
+
+/* Custom styling */
+.module {
+    margin: 0 4px;
+    padding: 0 8px;
+}
+
+/* Tooltip styling */
+tooltip {
+    background: @surface_container;
+    color: @on_surface;
+    border: 1px solid @primary;
+    border-radius: 8px;
+}
+
+/* Animation for critical states */
+@keyframes blink {
+    to {
+        background-color: @surface;
+        color: @on_surface;
+    }
+}

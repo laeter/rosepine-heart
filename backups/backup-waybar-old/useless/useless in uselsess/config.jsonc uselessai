@@ -1,0 +1,140 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 5,
+  "spacing": 0,
+  "margin-left": 13,
+  "height": 40,
+  "reload_style_on_change": true,
+  "modules-left": ["custom/omarchy", "clock"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["group/tray-expander", "network", "pulseaudio", "custom/notification", "custom/update"],
+  "custom/omarchy": {
+    "format": "<span font='omarchy'>\ue900</span>",
+    "on-click": "omarchy-menu",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+  },
+  "custom/notification": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "makoctl dismiss -a",
+    "on-click-right": "makoctl restore"
+  },
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 3600
+  },
+  "custom/screenrecording-indicator": {
+    "on-click": "omarchy-cmd-screenrecord",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+    "signal": 8,
+    "return-type": "json"
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": ["custom/expand-icon", "tray"]
+  },
+  "custom/expand-icon": {
+    "format": " ",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 12
+  },
+  "clock": {
+    "format": "󰥔  {:%I:%M %p}",
+    "format-alt": "󰥔  {:%a, %d. %b  %I:%M %p}",
+    "tooltip-format": "Date: {:%Y-%m-%d}",
+    "on-click-right": "omarchy-cmd-tzupdate"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "󰂱 {volume}%",
+    "format-muted": "󰖁",
+    "scroll-step": 5,
+    "on-click": "$TERMINAL --class=Wiremix -e wiremix",
+    "on-click-right": "pamixer -t",
+    "ignored-sinks": ["Easy Effects Sink"],
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󱡏",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰖀", "󰕾"]
+    },
+    "tooltip-format": "Volume: {volume}%"
+  },
+  "network": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "omarchy-launch-wifi"
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十"
+    },
+    "persistent-workspaces": {
+      "*": 10
+    },
+    "sort-by-number": true
+  },
+  "custom/weather": {
+    "exec": "${HOME}/.config/waybar/scripts/get_weather.sh Port+Coquitlam",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600
+  },
+  "hyprland/window": {
+    "format": "{class}"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "󰍛",
+    "on-click": "$TERMINAL -e btop"
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": {
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "on-click": "omarchy-menu power"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "on-click": "blueberry"
+  }
+}
+

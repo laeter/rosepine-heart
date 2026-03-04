@@ -1,0 +1,11 @@
+"custom/volume-bar": {
+        "format": "<span> {}%</span>",
+        "format-muted": "<span> {}%</span>",
+        "return-type": "json",
+        "interval": 1,
+        "exec": "amixer get Master | grep -oE '[0-9]{1,3}%' | head -1 | tr -d %",
+        "on-click": "amixer set Master toggle",
+        "on-scroll-up": "amixer set Master 5%+",
+        "on-scroll-down": "amixer set Master 5%-",
+        "tooltip": true
+    }
