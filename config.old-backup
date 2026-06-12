@@ -1,0 +1,92 @@
+[
+    {
+        "include": [
+            "$HOME/.config/waybar/Modules",
+            "$HOME/.config/waybar/ModulesWorkspaces",
+            "$HOME/.config/waybar/ModulesCustom",
+            "$HOME/.config/waybar/ModulesGroups",
+            "$HOME/.config/waybar/UserModules",
+            "$HOME/.config/waybar/UserWorkspaces"
+        ],
+        
+        // ----- WAYBAR SETTINGS:
+        // Commented out to prevent dual Waybar when disconnecting from monitors
+        // Defaults to all monitors if unset
+        // "output": ["DP-1", "eDP-1", "HDMI-A-1"],
+        "fixed-center": true,
+        "layer": "top",
+        "margin-right": 0,
+        "margin-left": 0,
+        "spacing": 0,
+        "passthrough": false,
+        "exclusive": true,
+        "margin-top": 2,
+        "position": "top",
+        "ipc": false,
+    
+        // ----- MODULES LEFT:
+        "modules-left": [
+            "custom/arch",             // App Drawer
+            "custom/separator#blank",  // *Tip: Workspace styles are in ModulesWorkspaces/UserWorkspaces
+            "clock",                   // Clock with date
+            "custom/separator#blank",
+            "custom/weather",          // Weather info
+            "custom/separator#blank",
+            "mpris",                   // Media status
+            "hyprland/window"          // Active window title
+        ],
+
+        // ----- MODULES CENTER:
+        "modules-center": [
+            "hyprland/workspaces#kanji"  // e.g.: hyprland/workspaces#numbers, #roman, #kanji, #pacman, #pacman-rwc, #cam, #4
+        ],
+    
+        // ----- MODULES RIGHT:
+        "modules-right": [
+            "custom/separator#blank_3",
+            "custom/rec-dot",          // Recording status
+            "tray",                    // App tray
+            "custom/separator#blank",
+            "group/system-metrics",    // System metrics
+            "custom/separator#blank",
+            "custom/cpu-temp",        // CPU temperature
+            "custom/separator#blank",
+            "custom/gpu-temp",        // GPU temperature
+            "custom/separator#blank",
+            "custom/memory-simple",   // Memory usage
+            "custom/separator#blank",
+            "network",                 // Network status
+            "custom/separator#blank",
+            "bluetooth",               // Bluetooth devices
+            "custom/separator#blank",
+            "custom/volume-bar",       // Volume bar
+            "custom/separator#blank",
+            "custom/separator#line-tray",
+            "battery",                 // Battery status
+            "custom/separator#blank",
+            "custom/arch-update",  // System Update
+            "custom/separator#blank",
+            "group/status"
+        ],
+    
+    // ----- Theme specific module override
+        "custom/arch": {
+            "format": "󰣇",
+            "on-click": "nwg-drawer -c 4 -is 48 -spacing 15 -fm \"Noto Sans\" || fuzzel",
+            "on-click-right": "rofi -show drun",
+            "tooltip": true,
+            "tooltip-format": "Left-click: App Drawer | Right-click: Rofi"
+        }
+    }
+
+    // ----- For another waybar with different content on the same or another screen:
+    // e.g.: A bottom bar with clock on DP-1 only.
+    //,{
+        // Start a new waybar here.
+        // "include": ["$HOME/.config/waybar/Modules"],  // Required for 'clock' module
+        // "output": ["DP-1"],
+        // "fixed-center": true,/
+        // "position": "bottom",
+        // "modules-center": ["clock"]
+    //}
+]
