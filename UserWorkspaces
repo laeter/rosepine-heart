@@ -78,7 +78,6 @@
 	"warp-on-scroll": false,
 	"sort-by-number": true,
 	"show-special": false,
-	"on-click": "$HOME/.local/share/archriot/config/bin/waybar-workspace-click.sh {name} ",
 	"on-scroll-up": "hyprctl dispatch workspace e+1 ",
 	"on-scroll-down": "hyprctl dispatch workspace e-1 ",
 	"persistent-workspaces": {

@@ -21,10 +21,16 @@
 
 set -eu
 
-# Attempt to gracefully stop Kooha when clicked
+# Handle click: stop recording if active, start Kooha if not
 if [ "${1:-}" = "--click" ]; then
-  # Try SIGINT first (let Kooha finalize the file cleanly), then TERM as fallback
-  pkill -INT -x kooha 2>/dev/null || pkill -TERM -x kooha 2>/dev/null || true
+  # Check if Kooha is running
+  if pgrep -x kooha >/dev/null 2>&1; then
+    # Stop recording: Try SIGINT first (let Kooha finalize the file cleanly), then TERM as fallback
+    pkill -INT -x kooha 2>/dev/null || pkill -TERM -x kooha 2>/dev/null || true
+  else
+    # Start Kooha
+    kooha >/dev/null 2>&1 &
+  fi
   exit 0
 fi
 
@@ -59,5 +65,5 @@ fi
 if [ "$active" -eq 1 ]; then
   printf '{"text":"●","class":"recording","tooltip":"Screen recording (click to stop)"}\n'
 else
-  printf '{"text":"","class":"","tooltip":"No screen recording"}\n'
+  printf '{"text":"○","class":"not-recording","tooltip":"Not recording (click to start)"}\n'
 fi

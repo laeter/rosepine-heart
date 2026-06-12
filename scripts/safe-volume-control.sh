@@ -2,9 +2,7 @@
 
 ACTION=$1
 
-# Get current volume using archriot (for consistency with waybar script)
 # We still need this to get the current state for the Waybar module
-VOLUME_INFO=$($HOME/.local/share/archriot/install/archriot --waybar-volume 2>&1)
 CURRENT_VOLUME=$(echo "$VOLUME_INFO" | jq -r '.percentage')
 
 case "$ACTION" in

@@ -42,8 +42,6 @@
 	"on-click-middle": "",
 	"on-click-right": "",
 	"on-update": "",
-	"on-scroll-up": "$HOME/.local/share/archriot/install/archriot --brightness up",
-	"on-scroll-down": "$HOME/.local/share/archriot/install/archriot --brightness down",
 	"smooth-scrolling-threshold": 1,
 },
 
@@ -234,8 +232,6 @@
 	"on-click": "playerctl previous",
 	"on-click-right": "playerctl next",
 	"scroll-step": 5.0,
-	"on-scroll-up": "$HOME/.local/share/archriot/install/archriot --volume inc",
-	"on-scroll-down": "$HOME/.local/share/archriot/install/archriot --volume dec",
 	"smooth-scrolling-threshold": 1,
 	"tooltip": true,
 	"tooltip-format": "{status_icon} {dynamic}\nLeft Click: previous\nMid Click: Pause\nRight Click: Next",
@@ -360,10 +356,7 @@
 	"format": "{format_source}",
 	"format-source": " {volume}%",
 	"format-source-muted": "",
-	"on-click": "$HOME/.local/share/archriot/install/archriot --volume mic-toggle",
 	"on-click-right": "pavucontrol -t 4",
-	"on-scroll-up": "$HOME/.local/share/archriot/install/archriot --volume mic-inc",
-	"on-scroll-down": "$HOME/.local/share/archriot/install/archriot --volume mic-dec",
 	"tooltip-format": "{source_desc} | {source_volume}%",
 	"scroll-step": 5,
 },
@@ -377,10 +370,7 @@
 "wireplumber": {
 	"format": "{icon} {volume} %",
 	"format-muted": " Mute",
-	"on-click": "$HOME/.local/share/archriot/install/archriot --volume toggle",
 	"on-click-right": "pavucontrol -t 3",
-	"on-scroll-up": "$HOME/.local/share/archriot/install/archriot --volume inc",
-	"on-scroll-down": "$HOME/.local/share/archriot/install/archriot --volume dec",
 	"format-icons": [
 		"", "", "󰕾", ""
 	],

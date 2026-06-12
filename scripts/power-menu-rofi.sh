@@ -6,19 +6,19 @@
 option=$(echo -e "  Lock\n  Logout\n  Suspend\n󰜉  Reboot\n  Shutdown" | rofi -dmenu -i -p "Power Menu" -theme neuro-mocha)
 
 case "$option" in
-    *Lock)
+    *Lock*)
         hyprlock
         ;;
-    *Logout)
+    *Logout*)
         hyprctl dispatch exit
         ;;
-    *Suspend)
+    *Suspend*)
         systemctl suspend
         ;;
-    *Reboot)
+    *Reboot*)
         systemctl reboot
         ;;
-    *Shutdown)
+    *Shutdown*)
         systemctl poweroff
         ;;
 esac
